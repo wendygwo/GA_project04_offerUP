@@ -16,8 +16,7 @@
 
 	<%= form_for @user, :url => { :controller => "sessions", :action => "create" } do |f| %> <!-- See the comment under the f.submit line for details. the url tells it to go to the sessions path, create method instead-->
 
-		<div class="row">
-			<div class='col-xs-4 col-xs-offset-4'>
+		
 				<p><%= f.text_field :email, class: 'signupfield' %></p>
 
 				<p><%= f.password_field :password, class: 'signupfield' %></p>

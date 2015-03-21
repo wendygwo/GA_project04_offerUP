@@ -25,7 +25,8 @@ class GoodsController < ApplicationController
   # POST /goods.json
   def create
     @good = Good.new(good_params)
-
+    @good.latitude = @good.user.latitude
+    @good.longitude = @good.user.longitude
     respond_to do |format|
       if @good.save
         format.html { redirect_to @good, notice: 'Good was successfully created.' }
