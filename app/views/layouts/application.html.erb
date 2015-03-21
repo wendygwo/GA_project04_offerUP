@@ -13,14 +13,15 @@
   <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
 <% end %>
 <%= yield %>
-This is for troubleshooting only. Delete this later
+
   <font color='red'>
+    This is for troubleshooting only. Delete this later
     <br>
     <hr>
     <h3>Parameters (for troubleshooting. delete later!)</h3>
     <%= params.inspect %>
     <p>Session ID: <p>
-    <%=session['owner_id']%>
+    <%=session['user_id']%>
   </font>
 </body>
 </html>

@@ -2,6 +2,16 @@
 
 <%= image_tag @user.photo.url("medium") %>
 
+<h3>My friends</h3>
+<ul>
+  <% for user in @user.friends %>
+    <li>
+      <%= user.first_name %>
+    </li>
+  <% end %>
+</ul>
+<hr>
+
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -27,7 +37,8 @@
   <%= @user.state %>
 </p>
 
-<%= link_to 'Add New Good', new_good_path(user_id: @user.id) %>
+
+<%= link_to 'Add New Good', new_good_path(user_id: @user.id) %> |
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

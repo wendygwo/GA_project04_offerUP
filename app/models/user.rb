@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
     medium: '300x300>'
   }
 
+  has_many :friendships
+  has_many :friends, :through => :friendships
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 

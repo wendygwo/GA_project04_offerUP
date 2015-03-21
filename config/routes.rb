@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :friendships, only: [:create, :destroy]
+
+  get 'searches/search' => 'searches#search'
+
   resources :goods
 
   resource :sessions, only: [:new, :create, :destroy]
