@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @user.photo.url("medium") %>
+
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>

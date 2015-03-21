@@ -19,7 +19,10 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  
+  <div class="field">
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
+  </div>
   <% if params[:user_id] != nil %>
     <%= f.hidden_field :user_id, value:params[:user_id] %>
   <% else %>
