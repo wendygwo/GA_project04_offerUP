@@ -4,9 +4,10 @@
 
 <h3>My friends</h3>
 <ul>
-  <% for user in @user.friends %>
+  <% for friendship in @user.friendships %>
     <li>
-      <%= user.first_name %>
+      <%= friendship.friend.first_name %> 
+      (<%= link_to 'remove', friendship, method: :delete %>)
     </li>
   <% end %>
 </ul>
