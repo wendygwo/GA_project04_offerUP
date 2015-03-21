@@ -27,9 +27,11 @@ class FriendshipsController < ApplicationController
     # raise params.inspect
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     # Friendship.new(friendship_params)
+    friendee = User.where(id: params[:friend_id]).first
+    inverse_friendship = friendee.friendships.build(:friend_id => current_user.id)
 
     respond_to do |format|
-      if @friendship.save
+      if @friendship.save && inverse_friendship.save
 
         format.html { redirect_to user_path(current_user), notice: 'Friendship was successfully created.' }
         format.json { render :show, status: :created, location: @friendship }
