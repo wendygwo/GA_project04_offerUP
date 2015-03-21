@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if current_user == nil %>
+  <li><%= link_to 'Sign In', new_sessions_path %></li>
+<% else %>
+  <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
+<% end %>
 <%= yield %>
-
+This is for troubleshooting only. Delete this later
+  <font color='red'>
+    <br>
+    <hr>
+    <h3>Parameters (for troubleshooting. delete later!)</h3>
+    <%= params.inspect %>
+    <p>Session ID: <p>
+    <%=session['owner_id']%>
+  </font>
 </body>
 </html>

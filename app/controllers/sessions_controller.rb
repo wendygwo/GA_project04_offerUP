@@ -13,13 +13,13 @@ class SessionsController < ApplicationController
         if u.is_admin?
           redirect_to user_path(u.id)
         else
-          redirect_to posts_path
+          # redirect_to posts_path
         end
     end
   end
 
   def destroy
     session.destroy
-    redirect_to posts_path
+    redirect_to new_sessions_path
   end
 end
