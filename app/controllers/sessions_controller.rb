@@ -11,6 +11,9 @@ class SessionsController < ApplicationController
       # Cookie only sticks if redirect_to renders a complete page. 
       session["user_id"] = u.id.to_s
       redirect_to user_path(u.id)
+    else 
+      flash[:notice] = "Login Failed. Please Try Again."
+      redirect_to new_sessions_path
     end
   end
 

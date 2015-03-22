@@ -13,6 +13,13 @@
 </ul>
 <hr>
 
+<h3>My Goods</h3>
+<% @goods.each do |g| %>
+<%= image_tag g.photo.url('medium') %><br />
+<%= g.name %><br />
+<%= g.description %><br />
+<% end %>
+
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>

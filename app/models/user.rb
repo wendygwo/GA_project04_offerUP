@@ -1,6 +1,7 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
-	has_secure_password
+	validates_uniqueness_of :email
+  has_secure_password
   geocoded_by :full_address
   after_validation :geocode
   has_many :goods
