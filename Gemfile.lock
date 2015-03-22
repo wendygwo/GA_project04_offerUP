@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: 3ad557cb25d442d2a10df9ab4fae90e7877da69f
+  specs:
+    faker (1.4.3)
+      i18n (~> 0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -194,6 +201,7 @@ DEPENDENCIES
   better_errors
   byebug
   coffee-rails (~> 4.1.0)
+  faker!
   figaro
   geocoder
   jbuilder (~> 2.0)
