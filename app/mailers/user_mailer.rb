@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
     @user = User.where(id: user_id).first
     @greeting = "Hi #{@user.first_name}"
 
-    mail to: @user.email
+    mail to: @user.email, :subject => 'Welcome to OfferUp!'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -28,9 +28,10 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.forgot_password.subject
   #
-  def forgot_password
+  def forgot_password(user)
+    @user = user
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: user.email, :subject => 'Reset password instructions'
   end
 end

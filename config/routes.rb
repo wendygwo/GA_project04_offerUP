@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
 
   resources :users
+  resources :password_resets
+  root 'sessions#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
