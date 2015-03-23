@@ -25,6 +25,8 @@ Rails.application.configure do
 
   # config letter_opener gem
   config.action_mailer.delivery_method = :letter_opener
+  # Configure default URL for action mailer
+  config.action_mailer.default_url_options = {:host =>'localhost:3000'}
   
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

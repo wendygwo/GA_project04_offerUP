@@ -2,24 +2,7 @@
 
 <%= image_tag @user.photo.url("medium") %>
 
-<h3>My friends</h3>
-<ul>
-  <% for friendship in @user.friendships %>
-    <li>
-      <%= friendship.friend.first_name %> 
-      (<%= link_to 'remove', friendship, method: :delete %>)
-    </li>
-  <% end %>
-</ul>
-<hr>
-
-<h3>My Goods</h3>
-<% @goods.each do |g| %>
-<%= image_tag g.photo.url('medium') %><br />
-<%= g.name %><br />
-<%= g.description %><br />
-<% end %>
-
+<h3>My info</h3>
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -45,8 +28,24 @@
   <%= @user.state %>
 </p>
 
+<hr>
+<h3>My friends(<%= link_to 'Add more friends', users_path %>)</h3>
+<ul>
+  <% for friendship in @user.friendships %>
+    <li>
+      <%= friendship.friend.first_name %> 
+      (<%= link_to 'remove', friendship, method: :delete %>)
+    </li>
+  <% end %>
+</ul>
+<hr>
 
-<%= link_to 'Add New Good', new_good_path(user_id: @user.id) %> |
+<h3>My Goods(<%= link_to 'Add New Good', new_good_path(user_id: @user.id) %>)</h3>
+<% @goods.each do |g| %>
+<%= image_tag g.photo.url('medium') %><br />
+<%= g.name %><br />
+<%= g.description %><br />
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
