@@ -3,15 +3,18 @@ class GoodsController < ApplicationController
 
   def search
     
-    @goods = Good.near('Los Angeles, CA', 20)
+    @goods = Good.near(params[:location], 20)
     puts "==================================="
     puts @goods
     puts "==================================="
     # coords =  Geocoder.coordinates(params[:location])
     # puts "==================================="
-    # dogsearch =  Good.search "dog", where: {location: {near: [34.0522342, -118.2436849], within: "100mi"}}
-    # puts dogsearch
-    # puts "==================================="
+    dogsearch =  @goods.search "buds", 
+    fields: [{name: :word_middle},
+              {description: :word_middle}
+            ]
+    puts dogsearch[0].name
+    puts "==================================="
     raise params.inspect
   end
   
