@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'searchkick'
 gem 'faker', git: "https://github.com/stympy/faker.git"
 gem 'aws-sdk', '< 2.0'
 gem "paperclip", "~> 4.2"

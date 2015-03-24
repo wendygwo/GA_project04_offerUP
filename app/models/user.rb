@@ -1,6 +1,7 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
-	validates_uniqueness_of :email
+	searchkick word_middle: [:first_name, :last_name, :email, :city, :state, :zip_code]
+  validates_uniqueness_of :email
   has_secure_password
   geocoded_by :full_address
   after_validation :geocode

@@ -1,6 +1,20 @@
 class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
 
+  def search
+    
+    @goods = Good.near('Los Angeles, CA', 20)
+    puts "==================================="
+    puts @goods
+    puts "==================================="
+    # coords =  Geocoder.coordinates(params[:location])
+    # puts "==================================="
+    # dogsearch =  Good.search "dog", where: {location: {near: [34.0522342, -118.2436849], within: "100mi"}}
+    # puts dogsearch
+    # puts "==================================="
+    raise params.inspect
+  end
+  
   # GET /goods
   # GET /goods.json
   def index
@@ -27,6 +41,9 @@ class GoodsController < ApplicationController
     @good = Good.new(good_params)
     @good.latitude = @good.user.latitude
     @good.longitude = @good.user.longitude
+    @good.city = @good.user.city
+    @good.state = @good.user.state
+    @good.zip_code = @good.user.zip_code
     respond_to do |format|
       if @good.save
         format.html { redirect_to @good, notice: 'Good was successfully created.' }

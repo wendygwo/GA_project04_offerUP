@@ -30,6 +30,11 @@
 
 <hr>
 <h3>My friends(<%= link_to 'Add more friends', users_path %>)</h3>
+<%= form_tag search_goods_path, :method => :get do %>
+ <%= text_field_tag :location, params[:location], :placeholder => 'Location', :class => "form-control" %>
+ <%= text_field_tag :name, params[:name], :class => "form-control" %>
+ <%= submit_tag "Search close to you", :name => nil, :class => "btn btn-danger" %>
+<% end %>
 <ul>
   <% for friendship in @user.friendships %>
     <li>
