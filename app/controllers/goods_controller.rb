@@ -3,19 +3,35 @@ class GoodsController < ApplicationController
 
   def search
     
-    @goods = Good.near(params[:location], 20)
+      @goods = Good.near(params[:location], 20)
+      goodsArray = []
+      @goods.each do |g|
+        goodsArray.push(g.id)
+      end
+
+      @goods = Good.search params[:name], 
+                fields: [{name: :word_middle},
+                {description: :word_middle}
+              ],
+                where:{
+                  id: goodsArray
+                }
+      @goods.each do |g|
+        puts g.name
+        puts g.id
+      end
     puts "==================================="
-    puts @goods
+    puts "@goods, yoooooo"
     puts "==================================="
     # coords =  Geocoder.coordinates(params[:location])
     # puts "==================================="
-    dogsearch =  @goods.search "buds", 
-    fields: [{name: :word_middle},
-              {description: :word_middle}
-            ]
-    puts dogsearch[0].name
+    # @goods.search params[:name], 
+    #             fields: [{name: :word_middle},
+    #             {description: :word_middle}
+    #           ]
+    puts '***********budsearch************'
+    # puts budsearch[1].name
     puts "==================================="
-    raise params.inspect
   end
   
   # GET /goods
