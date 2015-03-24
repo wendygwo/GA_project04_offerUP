@@ -1,0 +1,41 @@
+<%= form_tag search_goods_path, :method => :get do %>
+ <%= text_field_tag :location, params[:location], :placeholder => 'Location', :class => "form-control" %>
+ <%= text_field_tag :name, params[:name], :class => "form-control" %>
+ <%= submit_tag "Search close to you", :name => nil, :class => "btn btn-danger" %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Goods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @goods.each do |good| %>
+      <tr>
+        <td><%= good.name %></td>
+        <td><%= good.description %></td>
+        <td><%= good.latitude %></td>
+        <td><%= good.longitude %></td>
+        <td><%= good.user %></td>
+        <td><%= link_to 'Show', good %></td>
+        <td><%= link_to 'Edit', edit_good_path(good) %></td>
+        <td><%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Good', new_good_path %>

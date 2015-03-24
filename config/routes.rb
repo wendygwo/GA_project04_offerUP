@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
   resources :friendships, only: [:create, :destroy]
 
-  get 'searches/search' => 'searches#search'
-
-  resources :goods
+  resources :goods do
+    collection do
+      get 'search'
+    end
+  end
 
   resource :sessions, only: [:new, :create, :destroy]
 
-  resources :users
+  resources :users do
+    collection do
+      get 'search'
+    end
+  end
   resources :password_resets
   root 'sessions#new'
 

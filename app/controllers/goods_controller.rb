@@ -1,32 +1,49 @@
 class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
 
-  # GET /goods
-  # GET /goods.json
+  def search
+    goodsArray = []
+    friendsArray = []
+    # narrowing down goods by proximity in miles
+    @goods = Good.near(params[:location], 20)
+    # pushing good_id of goods within search proximity to array
+    @goods.each do |g|
+      goodsArray.push(g.id)
+    end
+    # array of current_user's friend_ids
+    friendsArray = current_user.friendships.pluck(:friend_id)
+    # search goods based on user input, narrowed down by proximity that belong to current_user's friends
+    @goods = Good.search params[:name], 
+              fields: [{name: :word_middle},
+              {description: :word_middle}
+            ],
+              where:{
+                id: goodsArray,
+                user_id: friendsArray
+              }
+  end
+  
   def index
     @goods = Good.all
   end
 
-  # GET /goods/1
-  # GET /goods/1.json
   def show
   end
 
-  # GET /goods/new
   def new
     @good = Good.new
   end
 
-  # GET /goods/1/edit
   def edit
   end
 
-  # POST /goods
-  # POST /goods.json
   def create
     @good = Good.new(good_params)
     @good.latitude = @good.user.latitude
     @good.longitude = @good.user.longitude
+    @good.city = @good.user.city
+    @good.state = @good.user.state
+    @good.zip_code = @good.user.zip_code
     respond_to do |format|
       if @good.save
         format.html { redirect_to @good, notice: 'Good was successfully created.' }
@@ -38,8 +55,6 @@ class GoodsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /goods/1
-  # PATCH/PUT /goods/1.json
   def update
     respond_to do |format|
       if @good.update(good_params)
@@ -52,8 +67,6 @@ class GoodsController < ApplicationController
     end
   end
 
-  # DELETE /goods/1
-  # DELETE /goods/1.json
   def destroy
     @good.destroy
     respond_to do |format|
