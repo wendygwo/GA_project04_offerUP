@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid">
 
 	<div class="row">
-		<div class='col-xs-6 col-xs-offset-3 text-center'>
+		<div class='text-center'>
 			<h1>Log-in!</h1>	
 		</div>
 	</div>
 
 	<div class="row">
-		<div class='col-xs-12 text-center'>
+		<div class='large-12 columns text-center'>
 			<%if params[:error_message] != nil %>
 				<p class="text-danger"><%= params[:error_message] %></p>
 			<% end %> 
@@ -17,23 +16,32 @@
 
 	<%= form_for @user, :url => { :controller => "sessions", :action => "create" } do |f| %> <!-- See the comment under the f.submit line for details. the url tells it to go to the sessions path, create method instead-->
 
-		
+	<div class='row'>
+		<div class='large-4 large-offset-4 columns text-center'>
 				<p><%= f.text_field :email, class: 'signupfield' %></p>
-
-				<p><%= f.password_field :password, class: 'signupfield' %></p>
-				<p><%= link_to 'Forgot password?', new_password_reset_path %></p>
-				<p><%=f.submit 'Log yourself in', :class =>  'btn btn-primary center-block' %> </p><!-- This will post back to the users controller by default because it's a user. We need to override this behavior -->
-			</div>
 		</div>
+	</div>
+	<div class='row'>
+		<div class='large-4 large-offset-4 columns text-center'>
+			<p><%= f.password_field :password, class: 'signupfield' %></p>
+		</div>
+	</div>
+	<div class='row'>
+		<div class='large-4 large-centered columns text-center'>
+			<p><%=f.submit 'Log yourself in', class: 'button radius' %> </p><!-- This will post back to the users controller by default because it's a user. We need to override this behavior -->
+		</div>
+	</div>
+	<div class='row text-center'>
+			<p><%= link_to 'Forgot password?', new_password_reset_path, class: 'text-center' %></p>
+	</div>
 
 	<% end %>
 
 	<div class="row">
-		<div class='col-xs-2'></div>
-		<div class='col-xs-8 text-center'>
+		<div class=''></div>
+		<div class='text-center'>
 			<%= link_to 'New user? Create an account here', new_user_path %>
 		</div>
-		<div class='col-xs-2'></div>
+		<div class=''></div>
 	</div>
 </div>
-		
