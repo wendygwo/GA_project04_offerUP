@@ -16,6 +16,11 @@ class Good < ActiveRecord::Base
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+  # Validate size of attached image is less than 1MB
+  validates_with AttachmentSizeValidator, :attributes => :photo, :less_than => 1.megabytes
+  
+  # Validates presence of first and last name, and city and state fields
+  validates_presence_of :name, :description
 
   def full_address
      "#{city}, #{state}, #{zip_code}"

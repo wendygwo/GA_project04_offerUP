@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @user.photo.url("medium") %>
+<% if !@user.photo_file_name.nil? %>
+  <%= image_tag @user.photo.url("medium") %>
+<% else %>
+  <%= image_tag 'mysteryperson.jpg' %> <br />
+<% end %>
 
 <h3>My info</h3>
 <p>
@@ -47,9 +51,16 @@
 
 <h3>My Goods(<%= link_to 'Add New Good', new_good_path(user_id: @user.id) %>)</h3>
 <% @goods.each do |g| %>
-<%= image_tag g.photo.url('medium') %><br />
-<%= g.name %><br />
-<%= g.description %><br />
+  <!-- If the user didn't upload an image for the good, use the placeholder product image -->
+  <% if !g.photo_file_name.nil? %>
+    <%= image_tag g.photo.url('medium') %><br />
+  <% else %>
+    <%= image_tag 'black-drill-sihouette.png' %> <br />
+  <% end %>
+  Name<br>
+  <%= g.name %><br />
+  Description<br>
+  <%= g.description %><br />
 <% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

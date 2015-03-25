@@ -1,16 +1,23 @@
 class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
+  # Before allowing access to goods pages(except show), make sure a user is logged in
+  before_filter :authenticate, :except => [:show]
 
   def search
     goodsArray = []
     friendsArray = []
-    # narrowing down goods by proximity in miles
-    @goods = Good.near(params[:location], 20)
-    # pushing good_id of goods within search proximity to array
+    # narrowing down goods by proximity in miles, if location supplied by user
+    if params[:location] != ''
+      @goods = Good.near(params[:location], 20)
+    else
+      #if location supplied by user, then return all goods from all locations 
+      @goods = Good.all
+    end
+    # pushing good_id of goods within search proximity to array, to be used in Searchkick search
     @goods.each do |g|
       goodsArray.push(g.id)
     end
-    # array of current_user's friend_ids
+    # array of current_user's friend_ids, to be used in Searchkick search
     friendsArray = current_user.friendships.pluck(:friend_id)
     # search goods based on user input, narrowed down by proximity that belong to current_user's friends
     @goods = Good.search params[:name], 
