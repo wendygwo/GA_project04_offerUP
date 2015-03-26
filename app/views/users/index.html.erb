@@ -1,38 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<% if @users.count != 0 %>
+  <h1>Add some friends!</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Zip code</th>
-      <th>City</th>
-      <th>State</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= user.email %></td>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.zip_code %></td>
-        <td><%= user.city %></td>
-        <td><%= user.state %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Add Friend', friendships_path(:friend_id => user.id), method: :post %></td>
+        <th>Email</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip code</th>
+        <th colspan="4">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.city %></td>
+          <td><%= user.state %></td>
+          <td><%= user.zip_code %></td>
+  <!--         <td><%#= link_to 'Show', user %></td>
+          <td><%#= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+          <% if current_user != nil %>
+            <td><%= link_to 'Add Friend', friendships_path(:friend_id => user.id), method: :post %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h2>You've friended everyone in our system!</h2>
+  <p>Be sure to let your other friends know about us, so that they can sign up, and you can add some more friends!</p>
+<% end %>

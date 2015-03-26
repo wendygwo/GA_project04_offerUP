@@ -63,8 +63,15 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1
   # DELETE /friendships/1.json
   def destroy
+    # Find friendship to destroy
     @friendship = current_user.friendships.find(params[:id])
+    # Find corresponding inverse friendship to destroy
+    @friendship_inverse = Friendship.where(user_id:@friendship.friend_id, friend_id: current_user.id).first
+
+    # Destroy friendship and corresponding inverse friendship
     @friendship.destroy
+    @friendship_inverse.destroy
+
     respond_to do |format|
       format.html { redirect_to user_path(current_user), notice: 'Friendship was successfully destroyed.' }
       format.json { head :no_content }

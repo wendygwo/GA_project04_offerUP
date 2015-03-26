@@ -4,7 +4,14 @@ class UsersController < ApplicationController
   before_filter :authenticate, :except => [:index, :new, :create]
 
   def index
-    @users = User.all
+    if current_user != nil
+      # Narrow down list of users that can be added as a friend just to users that current user is not already friends with and is not themselves
+      friendsArray = current_user.friendships.pluck(:friend_id)
+      friendsArray.push(current_user.id)
+      @users = User.where.not(id: friendsArray)
+    else
+      @users = User.all
+    end
   end
 
   def show
