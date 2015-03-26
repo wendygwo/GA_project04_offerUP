@@ -1,56 +1,75 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @user.photo.url("medium") %>
+<div class='row'>
+  <div class='large-10 columns'>
+    <div class='row'>
 
-<h3>My info</h3>
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+      <!-- user photo -->
+      <div class='large-3 columns'>
+        <% if !@user.photo_file_name.nil? %>
+        <%= image_tag @user.photo.url("medium") %>
+        <% else %>
+        <%= image_tag 'mysteryperson.jpg' %> <br />
+        <% end %>
+      </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+      <!-- user profile info -->
+      <div class='large-2 columns'>
+      <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+      <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+      <p><%= @user.city %>, <%= @user.state %></p>
+      <p><%= @user.friendships.count %> friends</p>
+      </div>
+<% friendsArray = current_user.friendships.pluck(:friend_id) %>
+      <!-- add more friends button -->
+      <div class='large-4 columns'>
+        <!-- prevents user from adding himself, prevents people who are already friends with current_user from adding again-->
+        <% if current_user.id != params[:id].to_i && !friendsArray.include?(params[:id].to_i)%>
+        <%= link_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), method: :post %>
+        <% end %>
+      </div>
+      <!-- map -->
+      <div class='large-3 columns'>MAPSIES!
+      </div>
+    </div>
 
-<p>
-  <strong>Zip code:</strong>
-  <%= @user.zip_code %>
-</p>
+    <!-- goods display starts -->
+    <div class='row'>
+      <% @goods.each do |g| %>
+      <div class='large-3 columns good_display'>
+        <!-- If the user didn't upload an image for the good, use the placeholder product image -->
+        <% if !g.photo_file_name.nil? %>
+          <%= image_tag g.photo.url('medium') %><br />
+        <% else %>
+          <%= image_tag 'black-drill-sihouette.png' %> <br />
+        <% end %>
+        Name<br>
+        <%= g.name %> (<%= link_to 'Edit', edit_good_path(g)  %>)<br />
+      </div>
+      <% end %>
+    </div>
+    <!-- add more stuff button -->
+    <%= link_to 'Add More Goods', new_good_path(user_id: @user.id), class: 'button radius' %>
+  </div>
 
-<p>
-  <strong>City:</strong>
-  <%= @user.city %>
-</p>
+  <!-- Right sidebar displaying all friends -->
+  <div class='large-2 columns'>
+    <h4 class='text-center'>My Friends</h4>
+    <% for friendship in @user.friendships %>
+    <div class='row'>
+      <div class='large-4 columns'>
+          <% if !friendship.friend.photo_file_name.nil? %>
+          <%= image_tag friendship.friend.photo.url("medium") %>
+          <% else %>
+          <%= image_tag 'mysteryperson.jpg' %> <br />
+          <% end %>
+      </div>
+      <div class='large-8 columns'>
+        <%= friendship.friend.first_name %> (<%= link_to 'remove', friendship, method: :delete %>)
+      </div>
+    </div>
+    <% end %>   
+      <%= link_to 'Add Friends', users_path, class: 'button radius' %>
+  </div>
+</div>
 
-<p>
-  <strong>State:</strong>
-  <%= @user.state %>
-</p>
-
-<hr>
-<h3>My friends(<%= link_to 'Add more friends', users_path %>)</h3>
-<%= form_tag search_goods_path, :method => :get do %>
- <%= text_field_tag :location, params[:location], :placeholder => 'Location', :class => "form-control" %>
- <%= text_field_tag :name, params[:name], :placeholder => 'What Are You Looking For?', :class => "form-control" %>
- <%= submit_tag "Search close to you", :name => nil, :class => "button tiny radius" %>
-<% end %>
-<ul>
-  <% for friendship in @user.friendships %>
-    <li>
-      <%= friendship.friend.first_name %> 
-      (<%= link_to 'remove', friendship, method: :delete %>)
-    </li>
-  <% end %>
-</ul>
-<hr>
-
-<h3>My Goods(<%= link_to 'Add New Good', new_good_path(user_id: @user.id) %>)</h3>
-<% @goods.each do |g| %>
-<%= image_tag g.photo.url('medium') %><br />
-<%= g.name %><br />
-<%= g.description %><br />
-<% end %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

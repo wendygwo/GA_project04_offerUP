@@ -1,6 +1,9 @@
 class FriendshipsController < ApplicationController
   before_action :set_friendship, only: [:show, :edit, :update, :destroy]
 
+  # Before allowing access to friendships pages, make sure a user is logged in
+  before_filter :authenticate
+
   # # GET /friendships
   # # GET /friendships.json
   # def index
