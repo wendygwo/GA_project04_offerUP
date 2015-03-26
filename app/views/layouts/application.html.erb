@@ -3,27 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+  <!-- start nav bar -->
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
+    <!-- logo -->
     <li class="name">
       <h1><%= link_to new_sessions_path do %>
       <%= image_tag 'offerup_logo_white.png', class: 'navLogo' %>
       <% end %></h1>
     </li>
+    <!-- nav search bar start -->
     <section class="top-bar-section">
       <ul class='left'>
         <li class='has-form'>
           <div class='row'>
+        <!-- search box doesn't appear if no one is logged in -->
+        <% if current_user != nil %>
         <%= form_tag search_goods_path, :method => :get do %>
             <div class='large-4 columns'><%= text_field_tag :location, params[:location], :placeholder => 'Location', :class => "radius" %>
             </div>
@@ -33,8 +35,11 @@
             <div class='large-4 columns'>
         <%= submit_tag "Search", :name => nil, :class => "button tiny radius" %>
             </div>
+        <!-- end form tag -->
         <% end %>
           </div>
+          <!-- end current_user logic -->
+        <% end %> 
         </li>
       </ul>
     <!-- Right Nav Section -->
