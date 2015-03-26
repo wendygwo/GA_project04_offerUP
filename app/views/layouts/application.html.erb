@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "OfferUP!" %></title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -39,7 +39,7 @@
         <% end %>
           </div>
           <!-- end current_user logic -->
-        <% end %> 
+        <% end %>
         </li>
       </ul>
     <!-- Right Nav Section -->
@@ -56,7 +56,7 @@
   <%= yield %>
 <font color='red'>
     <hr>
-    <h3>Parameters (for troubleshooting. delete later!)</h3>
+    <h3>Parameters (for troubleshooting. delete later!)<%= fa_icon 'money' %> </h3>
     <%= params.inspect %>
     <p>Session ID: <p>
     <%=session['user_id']%>
