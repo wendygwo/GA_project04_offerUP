@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'font-awesome-rails'
 gem 'foundation-rails'
 gem 'searchkick'
 gem 'faker', git: "https://github.com/stympy/faker.git"
@@ -54,4 +55,3 @@ group :development, :test do
 
 	gem 'letter_opener'
 end
-
