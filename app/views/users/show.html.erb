@@ -20,10 +20,12 @@
       <p><%= @user.city %>, <%= @user.state %></p>
       <p><%= @user.friendships.count %> friends</p>
       </div>
-<% friendsArray = current_user.friendships.pluck(:friend_id) %>
+
       <!-- add more friends button -->
       <div class='large-4 columns'>
-        <!-- prevents user from adding himself, prevents people who are already friends with current_user from adding again-->
+        <!-- creates array of current_user's friends. will check if user visiting page is already a friend of current_user -->
+        <% friendsArray = current_user.friendships.pluck(:friend_id) %>
+        <!-- prevents user from adding self, prevents people who are already friends with current_user from adding again-->
         <% if current_user.id != params[:id].to_i && !friendsArray.include?(params[:id].to_i)%>
         <%= link_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), method: :post %>
         <% end %>
@@ -68,8 +70,7 @@
         <%= friendship.friend.first_name %> (<%= link_to 'remove', friendship, method: :delete %>)
       </div>
     </div>
-    <% end %>   
+    <% end %>
       <%= link_to 'Add Friends', users_path, class: 'button radius' %>
   </div>
 </div>
-
