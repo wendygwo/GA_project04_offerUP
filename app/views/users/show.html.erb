@@ -7,18 +7,18 @@
       <!-- user photo -->
       <div class='large-3 columns'>
         <% if !@user.photo_file_name.nil? %>
-        <%= image_tag @user.photo.url("medium") %>
+          <%= image_tag @user.photo.url("medium") %>
         <% else %>
-        <%= image_tag 'mysteryperson.jpg' %> <br />
+          <%= image_tag 'mysteryperson.jpg' %> <br />
         <% end %>
       </div>
 
       <!-- user profile info -->
       <div class='large-2 columns'>
-      <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-      <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
-      <p><%= @user.city %>, <%= @user.state %></p>
-      <p><%= @user.friendships.count %> friends</p>
+        <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+        <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+        <p><%= @user.city %>, <%= @user.state %></p>
+        <p><%= @user.friendships.count %> friends</p>
       </div>
 
       <!-- add more friends button -->
@@ -27,7 +27,7 @@
         <% friendsArray = current_user.friendships.pluck(:friend_id) %>
         <!-- prevents user from adding self, prevents people who are already friends with current_user from adding again-->
         <% if current_user.id != params[:id].to_i && !friendsArray.include?(params[:id].to_i)%>
-        <%= link_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), method: :post %>
+          <%= link_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), method: :post %>
         <% end %>
       </div>
       <!-- map -->
@@ -60,14 +60,19 @@
     <% for friendship in @user.friendships %>
     <div class='row'>
       <div class='large-4 columns'>
+        <%#= link_to '#', user_path(friendship.friend) do %>
           <% if !friendship.friend.photo_file_name.nil? %>
-          <%= image_tag friendship.friend.photo.url("medium") %>
+            <%= link_to image_tag(friendship.friend.photo.url("medium")), user_path(friendship.friend)%>
           <% else %>
-          <%= image_tag 'mysteryperson.jpg' %> <br />
+            <%= link_to image_tag('mysteryperson.jpg'), user_path(friendship.friend) %> <br />
           <% end %>
+        <%# end %>
       </div>
       <div class='large-8 columns'>
-        <%= friendship.friend.first_name %> (<%= link_to 'remove', friendship, method: :delete %>)
+        <%= link_to friendship.friend.first_name, user_path(friendship.friend)%> 
+        <% if current_user.id == params[:id].to_i %>
+          (<%= link_to 'remove', friendship, method: :delete %>)
+        <% end %>
       </div>
     </div>
     <% end %>
