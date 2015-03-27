@@ -9,13 +9,15 @@ Rails.application.routes.draw do
 
   resource :sessions, only: [:new, :create, :destroy]
 
+  get 'sessions/:welcome' => 'sessions#welcome'
+
   resources :users do
     collection do
       get 'search'
     end
   end
   resources :password_resets
-  root 'sessions#new'
+  root 'sessions#welcome'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
