@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   resources :password_resets
   root 'sessions#new'
-
+  get 'pages/home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
