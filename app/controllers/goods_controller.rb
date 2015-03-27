@@ -1,4 +1,5 @@
 class GoodsController < ApplicationController
+  respond_to :json
   before_action :set_good, only: [:show, :edit, :update, :destroy]
   # Before allowing access to goods pages(except show), make sure a user is logged in
   before_filter :authenticate, :except => [:show]
