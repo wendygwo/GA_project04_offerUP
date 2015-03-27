@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # Before allowing access to user pages (except index and new), make sure a user is logged in
-  before_filter :authenticate, :except => [:index, :new, :create]
+  before_filter :authenticate, :except => [:index, :new, :create, :show]
 
   def index
     if current_user != nil
