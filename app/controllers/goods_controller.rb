@@ -14,12 +14,14 @@ class GoodsController < ApplicationController
       #if location supplied by user, then return all goods from all locations 
       @goods = Good.all
     end
-    # pushing good_id of goods within search proximity to array, to be used in Searchkick search
-    @goods.each do |g|
-      goodsArray.push(g.id)
-    end
+    # Creat array of id of goods within search proximity to array, to be used in Searchkick search
+    goodsArray = @goods.pluck(:id)
     # array of current_user's friend_ids, to be used in Searchkick search
     friendsArray = current_user.friendships.pluck(:friend_id)
+    # If no name search parameter present, then search all goods
+    if !params[:name].present?
+      params[:name] = '*'
+    end
     # search goods based on user input, narrowed down by proximity that belong to current_user's friends
     @goods = Good.search params[:name], 
               fields: [{name: :word_middle},
@@ -29,6 +31,8 @@ class GoodsController < ApplicationController
                 id: goodsArray,
                 user_id: friendsArray
               }
+    # Reset params[:name] to blank field, so it doesn't show up in the search form the user sees
+    params[:name]=''
   end
   
   def index
