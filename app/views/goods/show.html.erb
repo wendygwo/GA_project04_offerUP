@@ -17,18 +17,18 @@
 </p>
 
 <p>
-  <strong>Latitude:</strong>
-  <%= @good.latitude %>
+  <strong>City:</strong>
+  <%= @good.city %>
 </p>
 
 <p>
-  <strong>Longitude:</strong>
-  <%= @good.longitude %>
+  <strong>State:</strong>
+  <%= @good.state %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @good.user_id %>
+  <strong>Owner:</strong>
+  <%= @good.user.first_name %> <%= @good.user.last_name %>
 </p>
 
 <%= link_to 'Edit', edit_good_path(@good) %> |
