@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # Before allowing access to user pages (except index and new), make sure a user is logged in
-  before_filter :authenticate, :except => [:index, :new, :create, :show]
+  before_filter :authenticate, :only => [:edit, :update, :destroy]
 
   def index
     if current_user != nil
@@ -70,6 +70,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :first_name, :last_name, :zip_code, :city, :state, :latitude, :longitude, :password, :photo)
+      params.require(:user).permit(:email, :first_name, :last_name, :zip_code, :city, :state, :latitude, :longitude, :password, :password_confirmation, :photo)
     end
 end
