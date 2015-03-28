@@ -55,4 +55,14 @@ group :development, :test do
   # gem 'spring'
 
 	gem 'letter_opener'
+
+	#### Testing gems
+	# Shoulda Matchers
+	gem 'shoulda-matchers', require: false
+	#Add in the power of Capybara
+	gem 'capybara'
+	# Factory girl
+	gem 'factory_girl_rails'
+  #ADD IN simplecov gem
+  gem 'simplecov', :require => false
 end
