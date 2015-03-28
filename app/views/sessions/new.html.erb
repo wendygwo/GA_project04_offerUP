@@ -16,18 +16,19 @@
 			</div>
 	</div>
 
-	<%= form_for @user, :url => { :controller => "sessions", :action => "create" } do |f| %> <!-- See the comment under the f.submit line for details. the url tells it to go to the sessions path, create method instead-->
+	<%= form_for @user, :url => { :controller => "sessions", :action => "create" }, data:{abide: ''} do |f| %> <!-- See the comment under the f.submit line for details. the url tells it to go to the sessions path, create method instead-->
 
 	<div class='row'>
 		<div class='large-4 large-offset-4 columns text-center'>
 				<%= f.label :email %><br>
-				<p><%= f.text_field :email, placeholder: 'email', class: 'signupfield radius' %></p>
+				<%= f.text_field :email, placeholder: 'email', class: 'signupfield radius' %>
+				<small class="error">Please enter your email.</small>
 		</div>
 	</div>
 	<div class='row'>
 		<div class='large-4 large-offset-4 columns text-center'>
 			<%= f.label :password %><br>
-			<p><%= f.password_field :password, placeholder: 'password', class: 'signupfield radius' %></p>
+			<%= f.password_field :password, placeholder: 'password', class: 'signupfield radius' %>
 		</div>
 	</div>
 	<div class='row'>

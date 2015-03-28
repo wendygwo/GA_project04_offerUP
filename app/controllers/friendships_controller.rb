@@ -35,7 +35,7 @@ class FriendshipsController < ApplicationController
 
     respond_to do |format|
       if @friendship.save && inverse_friendship.save
-        UserMailer.friend_added(current_user, friendee).deliver
+        UserMailer.friend_added(current_user, friendee).deliver_now
         format.html { redirect_to user_path(current_user), notice: 'Friendship was successfully created.' }
         format.json { render :show, status: :created, location: @friendship }
       else

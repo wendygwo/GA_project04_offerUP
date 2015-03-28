@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       if @user.save
         #redirect to owner show page and create session cookie if user successfully created
         session['user_id'] = @user.id.to_s
-        UserMailer.welcome(@user.id).deliver
+        UserMailer.welcome(@user.id).deliver_now
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
