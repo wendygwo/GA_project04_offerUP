@@ -13,8 +13,8 @@
 
    <div class='row'>
      <div class="large-4 columns small-centered text-center field">
-      
-      <%= f.text_field :email, :placeholder => 'email', :required => '', :type => 'email' %>
+      <%= f.label :email %><br>
+      <%= f.text_field :email, :required => '', :type => 'email' %>
       <small class="error">A valid email address is required.</small>
     </div>
   </div>
@@ -85,7 +85,7 @@
   <div class='row'>
     <div class="large-4 columns small-centered text-center field">
       <div class="actions">
-        <%= f.submit 'CREATE ACCOUNT', class: 'button radius'%>
+        <%= f.submit 'SUBMIT', class: 'button radius'%>
       </div>
     </div>
   </div>  
