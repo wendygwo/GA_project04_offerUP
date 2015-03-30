@@ -14,7 +14,7 @@ RSpec.feature "Users", type: :feature do
       fill_in 'user[password]', :with => 'password'
       fill_in 'user[password_confirmation]', :with => 'password'
     end
-    click_button 'Create User'
+    click_button 'SUBMIT'
     expect(page).to have_content 'Edit Profile'
   end
 
@@ -30,7 +30,7 @@ RSpec.feature "Users", type: :feature do
       fill_in 'user[password]', :with => 'password'
       fill_in 'user[password_confirmation]', :with => 'password'
     end
-    click_button 'Create User'
+    click_button 'SUBMIT'
     expect(page).to have_content 'Email is invalid'
   end
 
@@ -46,7 +46,7 @@ RSpec.feature "Users", type: :feature do
       fill_in 'user[password]', :with => 'password'
       fill_in 'user[password_confirmation]', :with => 'passworld'
     end
-    click_button 'Create User'
+    click_button 'SUBMIT'
     expect(page).to have_content 'Password confirmation doesn\'t match Password'
   end
 end
