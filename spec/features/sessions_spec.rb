@@ -12,7 +12,7 @@ RSpec.feature "The sign-in process", type: :feature do
       fill_in 'Email', :with => 'user@example.com'
       fill_in 'Password', :with => 'password'
     end
-    click_button 'Log yourself in'
+    click_button 'LOG IN'
     expect(page).to have_content 'Edit Profile'
   end
 
@@ -22,7 +22,7 @@ RSpec.feature "The sign-in process", type: :feature do
       fill_in 'Email', :with => 'user@example.com'
       fill_in 'Password', :with => 'passwod'
     end
-    click_button 'Log yourself in'
+    click_button 'LOG IN'
     expect(page).to have_content 'Login Failed. Please Try Again.'
   end
 
