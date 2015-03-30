@@ -24,7 +24,7 @@ RSpec.configure do |config|
     visit new_sessions_path
     fill_in "user[email]", :with => @user.email
     fill_in "user[password]", :with => @user.password
-    click_button 'Log yourself in'
+    click_button 'LOG IN'
     return @user
   end
 
