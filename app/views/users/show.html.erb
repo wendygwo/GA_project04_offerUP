@@ -51,7 +51,9 @@
       <% end %>
     </div>
     <!-- add more stuff button -->
-    <%= link_to 'Add More Goods', new_good_path(user_id: @user.id), class: 'button radius' %>
+    <% if current_user.id == params[:id].to_i %>
+      <%= link_to 'Add More Goods', new_good_path(user_id: @user.id), class: 'button radius' %>
+    <% end %>
   </div>
 
   <!-- Right sidebar displaying all friends -->
@@ -76,6 +78,8 @@
       </div>
     </div>
     <% end %>
+    <% if current_user.id == params[:id].to_i %>  
       <%= link_to 'Add Friends', users_path, class: 'button radius' %>
+    <% end %>
   </div>
 </div>
