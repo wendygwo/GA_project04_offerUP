@@ -9,7 +9,7 @@ RSpec.feature "Goods", type: :feature do
 			fill_in 'Name', :with => 'My goods'
 			fill_in 'Description', :with => 'My goods description'
 		end
-		click_button 'Create Good'
+		click_button 'SUBMIT'
 		expect(page).to have_content 'Good was successfully created'
 	end
 
@@ -20,7 +20,7 @@ RSpec.feature "Goods", type: :feature do
       fill_in 'Name', :with => ''
       fill_in 'Description', :with => 'My goods description'
     end
-    click_button 'Create Good'
+    click_button 'SUBMIT'
     expect(page).to have_content 'Name can\'t be blank'
   end
 
