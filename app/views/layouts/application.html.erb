@@ -54,13 +54,7 @@
 </ul>
 </nav>
   <%= yield %>
-<font color='red'>
-    <hr>
-    <h3>Parameters (for troubleshooting. delete later!)<%= fa_icon 'money' %> </h3>
-    <%= params.inspect %>
-    <p>Session ID: <p>
-    <%=session['user_id']%>
-  </font>
+
   <%= javascript_include_tag "application" %>
   </body>
 </html>
