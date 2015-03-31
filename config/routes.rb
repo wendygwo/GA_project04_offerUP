@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resource :sessions, only: [:new, :create, :destroy]
 
-  get 'sessions/:welcome' => 'sessions#welcome'
+  get 'sessions/welcome' => 'sessions#welcome'
 
   resources :users do
     collection do
