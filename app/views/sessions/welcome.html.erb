@@ -64,7 +64,6 @@
         <!-- end quote section -->
 
         <!-- value proposition start -->
-        <div class="row">
           <div class="large-12 columns">
             <h3 class='text-center'>Value Proposition</h3>
             <div class="row">
@@ -95,30 +94,41 @@
             <div class='row text-center'>
             <%= link_to 'SIGN UP', new_user_path, class: 'button large-3 columns large-centered' %>
           </div>
-          </div>
         </div>
+  
         <hr />
         <!-- how it works section -->
         <h3 class='text-center'>HOW IT WORKS</h3>
-        <div class="large-4 small-6 columns value">
-          <img src="http://placehold.it/150x150&text=Thumbnail"/>
-          <h6 class="">
-            Lomo whatever tilde PBR, trust fund mustache Kickstarter.
-          </h6>
-        </div>
+        <div class='row'>
+          <!-- icons start -->
+          <div class="large-4 small-6 columns value">
+            <div class='works_icon'>
+              <%= fa_icon 'user-plus' %>
+            </div>
+            <h6>
+              Sign up and find friends. OfferUp! is totally free.
+            </h6>
+          </div>
 
-        <div class="large-4 small-6 columns value">
-          <img src="http://placehold.it/150x150&text=Thumbnail"/>
-          <h6 class="">
-            Lomo whatever tilde PBR, trust fund mustache Kickstarter.
-          </h6>
-        </div>
+          <div class="large-4 small-6 columns value">
+            <div class='works_icon'>
+              <%= fa_icon 'street-view' %>
+            </div>
+            <h6>
+              Search by product, friend or location.
+            </h6>
+          </div>
 
-        <div class="large-4 small-6 columns value">
-          <img src="http://placehold.it/150x150&text=Thumbnail"/>
-          <h6 class="">
-            Lomo whatever tilde PBR, trust fund mustache Kickstarter.
-          </h6>
+          <div class="large-4 small-6 columns value">
+            <div class='works_icon'>
+              <%= fa_icon 'usd' %>
+            </div>
+            <h6>
+              Find what you need. Save money. Win at life.
+            </h6>
+          </div>
+          <!-- icons end -->
+        <!-- end how it works row -->
         </div>
 
         <!-- end how it works section -->
