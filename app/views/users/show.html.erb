@@ -16,7 +16,9 @@
       <!-- user profile info -->
       <div class='large-2 columns'>
         <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-        <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+        <% if current_user.id == params[:id].to_i %>
+          <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+        <% end %>
         <p><%= @user.city %>, <%= @user.state %></p>
         <p><%= @user.friendships.count %> friends</p>
       </div>
@@ -34,48 +36,71 @@
       <div class='large-3 columns'>MAPSIES!
       </div>
     </div>
-
+    <hr />
     <!-- goods display starts -->
+    <div class='row text-center'>
+      <h2>My Goods</h2>
+    </div>
     <div class='row'>
       <% @goods.each do |g| %>
-      <div class='large-3 columns good_display'>
-        <!-- If the user didn't upload an image for the good, use the placeholder product image -->
-        <% if !g.photo_file_name.nil? %>
-          <%= image_tag g.photo.url('medium') %><br />
-        <% else %>
-          <%= image_tag 'black-drill-sihouette.png' %> <br />
-        <% end %>
-        Name<br>
-        <%= g.name %> (<%= link_to 'Edit', edit_good_path(g)  %>)<br />
-      </div>
+        <div class='large-3 columns good_display end'>
+          <!-- If the user didn't upload an image for the good, use the placeholder product image -->
+          <div class='good_image'>
+            <% if !g.photo_file_name.nil? %>
+              <%= link_to image_tag(g.photo.url("medium")), good_path(g), class: 'good_image_image'%>
+              <br />
+            <% else %>
+              <%= link_to image_tag('black-drill-sihouette.png'), good_path(g) %> <br />
+            <% end %>
+          </div>
+          <%= g.name %>
+          <% if current_user.id == params[:id].to_i %>
+            (<%= link_to 'Edit', edit_good_path(g)  %>)<br />
+          <% end %>
+        </div>
       <% end %>
-    </div>
+    </div> <!-- End goods display row -->
+
+    
+    <div class='row text-center'>
     <!-- add more stuff button -->
-    <%= link_to 'Add More Goods', new_good_path(user_id: @user.id), class: 'button radius' %>
+    <% if current_user.id == params[:id].to_i %>
+      <%= link_to 'Add More Goods', new_good_path(user_id: @user.id), class: 'button radius' %>
+    <% end %>
+  </div>
   </div>
 
   <!-- Right sidebar displaying all friends -->
-  <div class='large-2 columns'>
+  <div class='large-2 columns friendsSidebar'>
     <h4 class='text-center'>My Friends</h4>
-    <% for friendship in @user.friendships %>
-    <div class='row'>
-      <div class='large-4 columns'>
-        <%#= link_to '#', user_path(friendship.friend) do %>
-          <% if !friendship.friend.photo_file_name.nil? %>
-            <%= link_to image_tag(friendship.friend.photo.url("medium")), user_path(friendship.friend)%>
-          <% else %>
-            <%= link_to image_tag('mysteryperson.jpg'), user_path(friendship.friend) %> <br />
-          <% end %>
-        <%# end %>
-      </div>
-      <div class='large-8 columns'>
-        <%= link_to friendship.friend.first_name, user_path(friendship.friend)%> 
-        <% if current_user.id == params[:id].to_i %>
-          (<%= link_to 'remove', friendship, method: :delete %>)
-        <% end %>
-      </div>
-    </div>
+    <% if friendsArray.length == 0 %>
+      <p>You are connected to <%= friendsArray.length %> users.</p>
     <% end %>
-      <%= link_to 'Add Friends', users_path, class: 'button radius' %>
+    <% for friendship in @user.friendships %>
+      <div class='row'>
+        <div class='large-4 columns'>
+          <%#= link_to '#', user_path(friendship.friend) do %>
+            <% if !friendship.friend.photo_file_name.nil? %>
+              <%= link_to image_tag(friendship.friend.photo.url("medium")), user_path(friendship.friend)%>
+            <% else %>
+              <%= link_to image_tag('mysteryperson.jpg'), user_path(friendship.friend) %> <br />
+            <% end %>
+          <%# end %>
+        </div>
+        <div class='large-8 columns'>
+          <%= link_to friendship.friend.first_name, user_path(friendship.friend)%> 
+          <% if current_user.id == params[:id].to_i %>
+            (<%= link_to 'remove', friendship, method: :delete %>)
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <hr />
+    <!-- Add friends button -->
+    <div class='text-center'>
+      <% if current_user.id == params[:id].to_i %>  
+        <%= link_to 'Add Friends', users_path, class: 'button radius' %>
+      <% end %>
+    </div>
   </div>
 </div>

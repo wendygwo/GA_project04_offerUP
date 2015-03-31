@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <%= favicon_link_tag 'favicon.ico' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= content_for?(:title) ? yield(:title) : "OfferUP!" %></title>
     <%= stylesheet_link_tag    "application" %>
@@ -54,13 +55,7 @@
 </ul>
 </nav>
   <%= yield %>
-<font color='red'>
-    <hr>
-    <h3>Parameters (for troubleshooting. delete later!)<%= fa_icon 'money' %> </h3>
-    <%= params.inspect %>
-    <p>Session ID: <p>
-    <%=session['user_id']%>
-  </font>
+
   <%= javascript_include_tag "application" %>
   </body>
 </html>
