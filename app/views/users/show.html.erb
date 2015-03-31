@@ -16,7 +16,9 @@
       <!-- user profile info -->
       <div class='large-2 columns'>
         <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-        <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+        <% if current_user.id == params[:id].to_i %>
+          <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+        <% end %>
         <p><%= @user.city %>, <%= @user.state %></p>
         <p><%= @user.friendships.count %> friends</p>
       </div>
@@ -37,7 +39,7 @@
     <hr />
     <!-- goods display starts -->
     <div class='row text-center'>
-      <h2>My goods</h2>
+      <h2>My Goods</h2>
     </div>
     <div class='row'>
       <% @goods.each do |g| %>
@@ -45,25 +47,27 @@
           <!-- If the user didn't upload an image for the good, use the placeholder product image -->
           <div class='good_image'>
             <% if !g.photo_file_name.nil? %>
-              <%= image_tag g.photo.url('medium'), class: 'good_image_image' %><br />
+              <%= link_to image_tag(g.photo.url("medium")), good_path(g), class: 'good_image_image'%>
+              <br />
             <% else %>
-              <%= image_tag 'black-drill-sihouette.png' %> <br />
+              <%= link_to image_tag('black-drill-sihouette.png'), good_path(g) %> <br />
             <% end %>
           </div>
-          <%= g.name %>(<%= link_to 'Edit', edit_good_path(g)  %>)<br />
+          <%= g.name %>
+          <% if current_user.id == params[:id].to_i %>
+            (<%= link_to 'Edit', edit_good_path(g)  %>)<br />
+          <% end %>
         </div>
       <% end %>
     </div> <!-- End goods display row -->
 
+    
     <div class='row text-center'>
-      <!-- add more stuff button -->
-      <%= link_to 'Add More Goods', new_good_path(user_id: @user.id), class: 'button radius' %>
-    </div>
-
     <!-- add more stuff button -->
     <% if current_user.id == params[:id].to_i %>
       <%= link_to 'Add More Goods', new_good_path(user_id: @user.id), class: 'button radius' %>
     <% end %>
+  </div>
   </div>
 
   <!-- Right sidebar displaying all friends -->
@@ -91,6 +95,7 @@
         </div>
       </div>
     <% end %>
+    <hr />
     <!-- Add friends button -->
     <div class='text-center'>
       <% if current_user.id == params[:id].to_i %>  
