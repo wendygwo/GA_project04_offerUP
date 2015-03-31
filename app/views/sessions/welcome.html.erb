@@ -1,45 +1,4 @@
-<!-- <div class="row">
-        <div class="large-12 columns">
 
-
-            <nav class="top-bar" data-topbar>
-              <ul class="title-area">
-
-                <li class="name">
-                  <h1>
-                    <a href="#">
-                      Top Bar Title
-                    </a>
-                  </h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-              </ul>
-
-              <section class="top-bar-section">
-                <ul class="left">
-                  <li><a href="#">Link 1</a></li>
-                  <li><a href="#">Link 2</a></li>
-                </ul>
-
-                <ul class="right">
-                  <li class="search">
-                    <form>
-                      <input type="search">
-                    </form>
-                  </li>
-
-                  <li class="has-button">
-                    <a class="small button" href="#">Search</a>
-                  </li>
-                </ul>
-              </section>
-            </nav>
-
-
-
-          </div>
-        </div>
-        -->
         <!-- hero image -->
         <div class="row">
           <div class="large-12 columns">
@@ -48,10 +7,42 @@
 
             <div class="hide-for-small">
               <div id="featured">
-                    <img src="http://placehold.it/1400x500&text=Slide Image" alt="slide image">
-
-                </div>
-              </div>
+                    <%= image_tag 'bike_woman.jpg' %>
+                <div class='large-3 columns large-offset-1' id='splash'>
+                  <div class='row'>
+                    <div class='large-12 columns text-center'>
+                      <%= image_tag 'offerup_logo_blue_mono.png' %>
+                      <h3 id='splash_text'>Your social economy.</h3>
+                      <div class='row'>    
+                        <div class='splash_icons large-4 columns' id="topLeft">
+                          <div class='text-center' id='bike'>
+                            <%= fa_icon 'bicycle' %>
+                          </div>
+                          <h4>Sports</h4>
+                        </div>
+                        <div class='splash_icons large-4 columns' id="topRight">
+                          <div class='text-center' id='camera'>
+                            <%= fa_icon 'camera' %>
+                          </div>
+                          <h4>Tech</h4>
+                        </div>
+                      </div>
+                      <div class='row'>    
+                        <div class='splash_icons large-4 columns' id="bottomLeft">
+                          <div class='text-center' id='wrench'>
+                            <%= fa_icon 'wrench' %>
+                          </div>
+                          <h4>Tools</h4>
+                        </div>
+                        <div class='splash_icons large-4 columns' id="bottomRight">
+                          <div class='text-center' id='suitcase'>
+                            <%= fa_icon 'suitcase' %>
+                          </div>
+                          <h4>Travel</h4>
+                        </div>
+                      </div>
+                  </div>
+                 </div>
 
 
           <div class="row">

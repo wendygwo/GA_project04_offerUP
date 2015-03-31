@@ -17,8 +17,18 @@
 
  */
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+@import url(http://fonts.googleapis.com/css?family=Lato:100);
 
-/*navbar-styling*/
+// typography styling
+h1, h2, h3 {
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
+}
+#splash_text {
+  font-family: 'Lato', sans-serif;
+}
+
+// navbar styling
 .navLogo {
   height: 2em;
 }
@@ -26,5 +36,6 @@
 .good_display {
   height: 300px;
 }
+
 
 /**/

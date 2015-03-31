@@ -17,6 +17,21 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  
+# method to create a user and log in for capybara testing
+  def make_user_and_login
+    @user = User.create(:email => 'user@example.com', :password => 'password', :first_name => 'Micky', :last_name => 'Mouse', :city => 'Los Angeles', :state => 'CA')
+    visit new_sessions_path
+    fill_in "user[email]", :with => @user.email
+    fill_in "user[password]", :with => @user.password
+    click_button 'LOG IN'
+    return @user
+  end
+
+  def make_good
+    @good = Good.create(name: 'My Good', description: 'My good\'s description')
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

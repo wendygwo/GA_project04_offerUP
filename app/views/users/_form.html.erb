@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, data:{abide: ''}) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,46 +11,82 @@
     </div>
   <% end %>
 
-   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+   <div class='row'>
+     <div class="large-4 columns small-centered text-center field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email, :required => '', :type => 'email' %>
+      <small class="error">A valid email address is required.</small>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+
+  <div class='row'>
+    <div class="large-4 columns small-centered text-center field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name, :required => '' %>
+      <small class="error">Please enter your first name.</small>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+
+   <div class='row'>
+    <div class="large-4 columns small-centered text-center field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name, :required => '' %>
+      <small class="error">Please enter your last name.</small>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :zip_code %><br>
-    <%= f.text_field :zip_code %>
+
+
+  <div class='row'>
+    <div class="large-4 columns small-centered text-center field">
+      <%= f.label :city %><br>
+      <%= f.text_field :city, :required => '' %>
+      <small class="error">City name required.</small>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+
+  <div class='row'>
+    <div class="large-4 columns small-centered text-center field">
+      <%= f.label :state %><br>
+      <%= f.text_field :state, :required => '' %>
+      <small class="error">State required.</small>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
+
+  <div class='row'>
+    <div class="large-4 columns small-centered text-center field">
+      <%= f.label :zip_code %><br>
+      <%= f.text_field :zip_code %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :photo %>
-    <%= f.file_field :photo %>
+
+  <div class='row'>
+    <div class="large-4 columns small-centered text-center field">
+      <%= f.label :photo %>
+      <%= f.file_field :photo %>
+    </div>
+  </div>
+    
+   <div class='row'>
+    <div class="large-4 columns small-centered text-center field">
+      <%= f.label :password %>
+      <%=f.password_field :password, :required => '' %>
+      <small class="error">Password required.</small>
+    </div>
   </div>
   
-  <div class="field">
-    Password:<br>
-    <p><%=f.password_field :password %></p>
+  <div class='row'>
+    <div class="large-4 columns small-centered text-center field">
+      <%= f.label :password_confirmation %>
+      <%=f.password_field :password_confirmation, :required => '', label: "Confirm Password"%>
+      <small class="error">Password confirmation required.</small>
+    </div>
   </div>
 
-  <div class="field">
-    Password confirmation: <br>
-    <p><%=f.password_field :password_confirmation, label: "Confirm Password"%></p>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class='row'>
+    <div class="large-4 columns small-centered text-center field">
+      <div class="actions">
+        <%= f.submit 'SUBMIT', class: 'button radius'%>
+      </div>
+    </div>
+  </div>  
 <% end %>
