@@ -1,11 +1,16 @@
-<h1>Reset Password</h1>
+<h1 class='text-center'>Reset Password</h1>
 
 <%= form_tag password_resets_path, :method => :post do %>
-	<div class='field'>
-		<%= label_tag :email %>
-		<%= text_field_tag :email, params[:email] %>
-	</div>
-	<div class='actions'>
-		<%= submit_tag "Reset Password" %>
-	</div>
+	
+<div class='row'>
+     <div class="large-4 columns small-centered text-center field">
+      <div class='field'>
+    		<%= label_tag :email %>
+    		<%= text_field_tag :email, params[:email], class: 'radius' %>
+    	</div>
+  	<div class='actions'>
+  		<%= submit_tag "Reset Password", class: 'button radius' %>
+  	</div>
+  </div>
+</div>
 <% end %>
