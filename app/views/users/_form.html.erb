@@ -14,7 +14,7 @@
    <div class='row'>
      <div class="large-4 columns small-centered text-center field">
       <%= f.label :email %><br>
-      <%= f.text_field :email, :required => '', :type => 'email' %>
+      <%= f.text_field :email, :required => '', :type => 'email', class: 'radius' %>
       <small class="error">A valid email address is required.</small>
     </div>
   </div>
@@ -22,7 +22,7 @@
   <div class='row'>
     <div class="large-4 columns small-centered text-center field">
       <%= f.label :first_name %><br>
-      <%= f.text_field :first_name, :required => '' %>
+      <%= f.text_field :first_name, :required => '', class: 'radius' %>
       <small class="error">Please enter your first name.</small>
     </div>
   </div>
@@ -30,7 +30,7 @@
    <div class='row'>
     <div class="large-4 columns small-centered text-center field">
       <%= f.label :last_name %><br>
-      <%= f.text_field :last_name, :required => '' %>
+      <%= f.text_field :last_name, :required => '', class: 'radius' %>
       <small class="error">Please enter your last name.</small>
     </div>
   </div>
@@ -39,7 +39,7 @@
   <div class='row'>
     <div class="large-4 columns small-centered text-center field">
       <%= f.label :city %><br>
-      <%= f.text_field :city, :required => '' %>
+      <%= f.text_field :city, :required => '', class: 'radius' %>
       <small class="error">City name required.</small>
     </div>
   </div>
@@ -47,7 +47,7 @@
   <div class='row'>
     <div class="large-4 columns small-centered text-center field">
       <%= f.label :state %><br>
-      <%= f.text_field :state, :required => '' %>
+      <%= f.text_field :state, :required => '', class: 'radius' %>
       <small class="error">State required.</small>
     </div>
   </div>
@@ -55,21 +55,21 @@
   <div class='row'>
     <div class="large-4 columns small-centered text-center field">
       <%= f.label :zip_code %><br>
-      <%= f.text_field :zip_code %>
+      <%= f.text_field :zip_code, class: 'radius' %>
     </div>
   </div>
 
   <div class='row'>
     <div class="large-4 columns small-centered text-center field">
       <%= f.label :photo %>
-      <%= f.file_field :photo %>
+      <%= f.file_field :photo, class: 'radius' %>
     </div>
   </div>
     
    <div class='row'>
     <div class="large-4 columns small-centered text-center field">
       <%= f.label :password %>
-      <%=f.password_field :password, :required => '' %>
+      <%=f.password_field :password, :required => '', class: 'radius' %>
       <small class="error">Password required.</small>
     </div>
   </div>
@@ -77,7 +77,7 @@
   <div class='row'>
     <div class="large-4 columns small-centered text-center field">
       <%= f.label :password_confirmation %>
-      <%=f.password_field :password_confirmation, :required => '', label: "Confirm Password"%>
+      <%=f.password_field :password_confirmation, :required => '', label: "Confirm Password", class: 'radius'%>
       <small class="error">Password confirmation required.</small>
     </div>
   </div>
