@@ -14,8 +14,10 @@ class GoodsController < ApplicationController
       #if location supplied by user, then return all goods from all locations 
       @goods = Good.all
     end
-    # Creat array of id of goods within search proximity to array, to be used in Searchkick search
-    goodsArray = @goods.pluck(:id)
+    # Create array of id of goods within search proximity to array, to be used in Searchkick search
+    @goods.each do |g|
+      goodsArray.push(g.id)
+    end
     # array of current_user's friend_ids, to be used in Searchkick search
     friendsArray = current_user.friendships.pluck(:friend_id)
     # If no name search parameter present, then search all goods
