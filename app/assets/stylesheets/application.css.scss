@@ -58,11 +58,16 @@ h1, h2, h3 {
   border: 1px solid #DADADA;
   opacity: 0.9;
   padding-bottom: 2rem;
+  min-width: 7rem;
+}
+
+#splash:hover div {
+  color: #696969;
 }
 
 .splash_icons {
   // height: 7rem;
-  width: 7rem;
+  max-width: 7rem;
   border: 1px solid #DADADA;
   border-radius: 3px;
   margin-top: 1.7rem;
@@ -70,6 +75,10 @@ h1, h2, h3 {
   padding-top: 0.5rem;
   position: relative;
 }
+
+// .splash_icons:hover {
+//   color: #DADADA !important;
+// }
 
 .quote {
   margin-top: 10px;

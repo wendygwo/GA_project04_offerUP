@@ -5,11 +5,13 @@
 <!-- benefits bar start -->
     <div id="featured">
           <%= image_tag 'bike_woman.jpg' %>
-      <div class='large-3 columns large-offset-1 hide-for-small' id='splash'>
+      <div class='large-3 columns large-offset-1 hide-for-small hide-for-medium' id='splash'>
         <div class='row'>
+          <a href='../users/new'>
           <div class='large-12 columns text-center'>
             <%= image_tag 'offerup_logo_blue_mono.png', class: 'logo_splash' %>
             <h3 id='splash_text'>Your social economy.</h3>
+            <!-- start icon top row -->
             <div class='row'>    
               <div class='splash_icons large-4 columns' id="topLeft">
                 <div class='text-center' id='bike'>
@@ -23,7 +25,9 @@
                 </div>
                 <h4>Tech</h4>
               </div>
-            </div>
+            </div><!-- end icon top row -->
+
+            <!-- start icon bottom row -->
             <div class='row'>    
               <div class='splash_icons large-4 columns' id="bottomLeft">
                 <div class='text-center' id='wrench'>
@@ -37,8 +41,9 @@
                 </div>
                 <h4>Travel</h4>
               </div>
-            </div>
-        </div>
+            </div> <!--end icon bottom row -->
+        </div><!-- end icon bar section -->
+        </a>
        </div>
       </div>
     </div> <!-- end featured row -->
@@ -93,7 +98,7 @@
 </div>
 
 <hr />
-<!-- how it works section -->
+<!-- how it works section start -->
 <h3 class='text-center'>HOW IT WORKS</h3>
 <div class='row'>
   <!-- icons start -->
@@ -130,6 +135,7 @@
     </h6>
   </div>
   <!-- icons end -->
+  
 <!-- end how it works row -->
 </div>
 <!-- end how it works section -->
