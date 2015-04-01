@@ -65,8 +65,19 @@ h1, h2, h3 {
   color: #696969;
 }
 
+.splash_signup {
+  background-color: white !important;
+  color: #498EFF !important;
+  border: 1px solid #498EFF;
+}
+
+.splash_signup:hover {
+  background-color: #ECF3FF !important;
+  color: #498EFF !important;
+  border: 1px solid #498EFF;
+}
+
 .splash_icons {
-  // height: 7rem;
   max-width: 7rem;
   border: 1px solid #DADADA;
   border-radius: 3px;
@@ -75,10 +86,6 @@ h1, h2, h3 {
   padding-top: 0.5rem;
   position: relative;
 }
-
-// .splash_icons:hover {
-//   color: #DADADA !important;
-// }
 
 .quote {
   margin-top: 10px;
