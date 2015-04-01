@@ -44,6 +44,9 @@ h1, h2, h3 {
   text-align: center;
 }
 
+.works_icon {
+  font-size: 6em;
+}
 
 // layout styling
 #splash {
@@ -54,6 +57,7 @@ h1, h2, h3 {
   background-color: white;
   border-radius: 3px;
   border: 1px solid #DADADA;
+  opacity: 0.9;
 }
 
 .splash_icons {
@@ -66,7 +70,7 @@ h1, h2, h3 {
 }
 
 .quote {
-  background-color: #FAFAFA;
+  margin-top: 10px;
 }
 
 .columns.nopadding {
@@ -104,6 +108,11 @@ h1, h2, h3 {
 
 #featured img {
   width: 100%;
+
+}
+
+.logo_splash {
+  margin-top: 0.5rem;
 }
 
 // icon styling
@@ -136,7 +145,5 @@ h1, h2, h3 {
 #bottomRight {
   margin-right: 40px;
 }
-
-
 
 /**/

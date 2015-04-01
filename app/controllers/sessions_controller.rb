@@ -23,9 +23,12 @@ class SessionsController < ApplicationController
 
   def destroy
     session.destroy
-    redirect_to new_sessions_path
+    redirect_to sessions_welcome_path
   end
 
   def welcome
+    if current_user != nil
+      redirect_to user_path(current_user)
+    end
   end
 end
