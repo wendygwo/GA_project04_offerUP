@@ -3,59 +3,48 @@
 <div class="row">
   <div class="large-12 columns nopadding">
 <!-- benefits bar start -->
-    <div class="hide-for-small">
-      <div id="featured">
-            <%= image_tag 'bike_woman.jpg' %>
-        <div class='large-3 columns large-offset-1' id='splash'>
-          <div class='row'>
-            <div class='large-12 columns text-center'>
-              <%= image_tag 'offerup_logo_blue_mono.png', class: 'logo_splash' %>
-              <h3 id='splash_text'>Your social economy.</h3>
-              <div class='row'>    
-                <div class='splash_icons large-4 columns' id="topLeft">
-                  <div class='text-center' id='bike'>
-                    <%= fa_icon 'bicycle' %>
-                  </div>
-                  <h4>Sports</h4>
+    <div id="featured">
+          <%= image_tag 'bike_woman.jpg' %>
+      <div class='large-3 columns large-offset-1 hide-for-small' id='splash'>
+        <div class='row'>
+          <div class='large-12 columns text-center'>
+            <%= image_tag 'offerup_logo_blue_mono.png', class: 'logo_splash' %>
+            <h3 id='splash_text'>Your social economy.</h3>
+            <div class='row'>    
+              <div class='splash_icons large-4 columns' id="topLeft">
+                <div class='text-center' id='bike'>
+                  <%= fa_icon 'bicycle' %>
                 </div>
-                <div class='splash_icons large-4 columns' id="topRight">
-                  <div class='text-center' id='camera'>
-                    <%= fa_icon 'camera' %>
-                  </div>
-                  <h4>Tech</h4>
-                </div>
+                <h4>Sports</h4>
               </div>
-              <div class='row'>    
-                <div class='splash_icons large-4 columns' id="bottomLeft">
-                  <div class='text-center' id='wrench'>
-                    <%= fa_icon 'wrench' %>
-                  </div>
-                  <h4>Tools</h4>
+              <div class='splash_icons large-4 columns' id="topRight">
+                <div class='text-center' id='camera'>
+                  <%= fa_icon 'camera' %>
                 </div>
-                <div class='splash_icons large-4 columns' id="bottomRight">
-                  <div class='text-center' id='suitcase'>
-                    <%= fa_icon 'suitcase' %>
-                  </div>
-                  <h4>Travel</h4>
-                </div>
+                <h4>Tech</h4>
               </div>
-          </div>
-         </div>
+            </div>
+            <div class='row'>    
+              <div class='splash_icons large-4 columns' id="bottomLeft">
+                <div class='text-center' id='wrench'>
+                  <%= fa_icon 'wrench' %>
+                </div>
+                <h4>Tools</h4>
+              </div>
+              <div class='splash_icons large-4 columns' id="bottomRight">
+                <div class='text-center' id='suitcase'>
+                  <%= fa_icon 'suitcase' %>
+                </div>
+                <h4>Travel</h4>
+              </div>
+            </div>
         </div>
-      </div> <!-- end featured row -->
-    </div> <!-- end hide for small -->
+       </div>
+      </div>
+    </div> <!-- end featured row -->
   </div> <!-- end large 12 nopadding -->
 </div> <!-- end first row -->
-         <!-- benefits bar end -->
-
-  <!-- TODO: Add small size photo for responsive -->
-  <div class="row">
-    <div class="small-12 show-for-small"><br>
-      <img src="http://placehold.it/1000x600&text=For Small Screens"/>
-    </div>
-  </div>
-</div>
-</div><br> 
+<br /> 
 <!-- end featured div -->
 
 <!-- start quote section -->
@@ -70,26 +59,26 @@
 
 <!-- value proposition start -->
   <div class="large-12 columns">
-    <h3 class='text-center'>Value Proposition</h3>
+    <h3 class='text-center'>Reduce Clutter, Save Money</h3>
     <br />
 
     <div class="row">
 
-      <div class="large-4 small-6 columns value">
+      <div class="large-4 small-12 columns value">
         <%= image_tag 'bike_500_square.jpg' %>
         <h6 class="">
           Do you need to drill a hole, learn to surf, or go for a bike ride? Do you you value experiences and relationships more than more stuff in your house? Join OfferUp! and participate in the world of collaborative consumption. You need the hole, not the drill. 
         </h6>
       </div>
 
-      <div class="large-4 small-6 columns value">
+      <div class="large-4 small-12 columns value">
         <%= image_tag 'surf_500_square.jpg' %>
         <h6 class="">
          The products we buy sit unused for most of their lifetimes. This idle capacity represents a huge opportunity to participate in the share economy, to source and borrow goods from your neighbors and friends. Value doesn't have to cost money!
         </h6>
       </div>
 
-      <div class="large-4 small-6 columns value">
+      <div class="large-4 small-12 columns value">
         <%= image_tag 'mower_500_square.jpg' %>
         <h6 class="">
           OfferUp! is on a mission to make sharing cool. We're social, local and all about meaningful connections. Peer-to-peer product sharing can change the world, one Offer at a time. We want to help you do it...join today and get in on the action!
@@ -108,7 +97,7 @@
 <h3 class='text-center'>HOW IT WORKS</h3>
 <div class='row'>
   <!-- icons start -->
-  <div class="large-4 small-6 columns value">
+  <div class="large-4 small-12 columns value">
     <div class='works_icon'>
       <%= fa_icon 'user-plus' %>
     </div>
@@ -119,7 +108,7 @@
     </h6>
   </div>
 
-  <div class="large-4 small-6 columns value">
+  <div class="large-4 small-12 columns value">
     <div class='works_icon'>
       <%= fa_icon 'street-view' %>
     </div>
@@ -130,7 +119,7 @@
     </h6>
   </div>
 
-  <div class="large-4 small-6 columns value">
+  <div class="large-4 small-12 columns value">
     <div class='works_icon'>
       <%= fa_icon 'usd' %>
     </div>
