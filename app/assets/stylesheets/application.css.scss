@@ -50,23 +50,25 @@ h1, h2, h3 {
 
 // layout styling
 #splash {
-  height: 400px;
   position: absolute;
   z-index: 1;
-  top: 75px;
+  top: 5rem;
   background-color: white;
   border-radius: 3px;
   border: 1px solid #DADADA;
   opacity: 0.9;
+  padding-bottom: 2rem;
 }
 
 .splash_icons {
-  height: 100px;
-  width: 100px;
+  // height: 7rem;
+  width: 7rem;
   border: 1px solid #DADADA;
   border-radius: 3px;
-  margin-top: 25px;
+  margin-top: 1.7rem;
   font-family: 'Lato';
+  padding-top: 0.5rem;
+  position: relative;
 }
 
 .quote {
@@ -76,6 +78,14 @@ h1, h2, h3 {
 .columns.nopadding {
   padding-left: 0;
   padding-right: 0;
+}
+
+.container {
+  margin: 0;
+  max-width: rem-calc(100%);
+  width: 100%;
+  position: relative;
+  padding: 0;
 }
 
 
@@ -130,20 +140,20 @@ h1, h2, h3 {
 }
 
 #topLeft {
-  margin-left: 40px;
+  margin-left: 2.5rem;
 }
 
 #bottomLeft {
-  margin-left: 40px;
+  margin-left: 2.5rem;
 }
 
 
 #topRight {
-  margin-right: 40px;
+  margin-right: 2.5rem;
 }
 
 #bottomRight {
-  margin-right: 40px;
+  margin-right: 2.5rem;
 }
 
 /**/
