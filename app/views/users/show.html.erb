@@ -17,7 +17,7 @@
       <div class='large-2 columns'>
         <h3><%= @user.first_name %> <%= @user.last_name %></h3>
         <% if current_user.id == params[:id].to_i %>
-          <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+          <p><%= link_to 'Edit Profile', edit_user_path(@user), class: 'textLinkHover' %></p>
         <% end %>
         <p><%= @user.city %>, <%= @user.state %></p>
         <p><%= @user.friendships.count %> friends</p>
@@ -55,7 +55,7 @@
           </div>
           <%= g.name %>
           <% if current_user.id == params[:id].to_i %>
-            (<%= link_to 'Edit', edit_good_path(g)  %>)<br />
+            (<%= link_to 'Edit', edit_good_path(g), class: 'textLinkHover' %>)<br />
           <% end %>
         </div>
       <% end %>
@@ -90,7 +90,7 @@
         <div class='large-8 columns'>
           <%= link_to friendship.friend.first_name, user_path(friendship.friend)%> 
           <% if current_user.id == params[:id].to_i %>
-            (<%= link_to 'remove', friendship, method: :delete %>)
+            (<%= link_to 'remove', friendship, method: :delete, class: 'textLinkHover' %>)
           <% end %>
         </div>
       </div>

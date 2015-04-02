@@ -102,7 +102,9 @@ h1, h2, h3 {
   position: relative;
   padding: 0;
 }
-
+.textLinkHover:hover{
+  color: #498EFF;
+}
 
 // navbar styling
 .navLogo {
