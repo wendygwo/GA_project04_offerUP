@@ -28,11 +28,11 @@
         <% friendsArray = current_user.friendships.pluck(:friend_id) %>
         <!-- prevents user from adding self, prevents people who are already friends with current_user from adding again-->
         <% if current_user.id != params[:id].to_i && !friendsArray.include?(params[:id].to_i)%>
-          <%= button_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), class: 'button radius large-8 columns large-offset-2 text-center' %>
+          <%= button_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), class: 'button radius large-8 columns large-offset-2 text-center outline' %>
         <% end %>
-        <%= button_to 'Find More Friends', users_path, :method => 'get', class: 'button radius large-8 columns large-offset-2 text-center' %>
-        <%= button_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), :method => 'post', class: 'button radius large-8 columns large-offset-2 text-center' %>
-        <%= button_to 'Add More Goods', new_good_path, :method => 'get', class: 'button radius large-8 columns large-offset-2 text-center' %>
+        <%= button_to 'Find More Friends', users_path, :method => 'get', class: 'button radius large-8 columns large-offset-2 text-center outline' %>
+        <%= button_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), :method => 'post', class: 'button radius large-8 columns large-offset-2 text-center outline' %>
+        <%= button_to 'Add More Goods', new_good_path, :method => 'get', class: 'button radius large-8 columns large-offset-2 text-center outline' %>
       </div>
     </div>
     <hr />
