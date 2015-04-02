@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <div class='row'>
   <%= form_tag search_users_path, :method => :get do %>
     <div class='large-5 columns'>
@@ -13,16 +12,16 @@
 </div>
 
 <% if @users.count != 0 %>
-  <h3 class='text-center'>Add Friends!</h3>
+  <h1>Add some friends!</h1>
 
   <table>
     <thead>
       <tr>
-        <th class='pictureTableCell'>Pic</th>
-        <th>Name</th>
+        <th class='pictureTableCell'></th>
         <th>Email</th>
+        <th>Name</th>
         <th class='goodLocTableCell'>Location</th>
-        <th>Friend</th>
+        <th>Action(s)</th>
       </tr>
     </thead>
 
@@ -36,11 +35,11 @@
             <%= link_to image_tag('mysteryperson.jpg'), user_path(user) %>
           <% end %>
           </td>
-          <td><%= link_to user.first_name + ' ' + user.last_name, user_path(user), class:'textLinkHover' %></td>
           <td><%= user.email %></td>
+          <td><%= link_to user.first_name + ' ' + user.last_name, user_path(user), class:'textLinkHover' %></td>
           <td><%= user.city %>, <%= user.state %> <%= user.zip_code %></td>
           <% if current_user != nil %>
-            <td class='text-center'><%= link_to 'Add Friend', friendships_path(:friend_id => user.id), method: :post, class:'button radius' %></td>
+            <td><%= link_to 'Add Friend', friendships_path(:friend_id => user.id), method: :post, class:'button radius' %></td>
           <% end %>
         </tr>
       <% end %>
