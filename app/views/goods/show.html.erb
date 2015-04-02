@@ -31,5 +31,6 @@
   <%= @good.user.first_name %> <%= @good.user.last_name %>
 </p>
 
-<%= link_to 'Edit', edit_good_path(@good) %> |
-<%= link_to 'Back', goods_path %>
+<% if @good.user_id == current_user.id %>
+<%= link_to 'Edit', edit_good_path(@good) %>
+<% end %>
