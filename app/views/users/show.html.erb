@@ -47,7 +47,7 @@
           <!-- If the user didn't upload an image for the good, use the placeholder product image -->
           <div class='good_image'>
             <% if !g.photo_file_name.nil? %>
-              <%= link_to image_tag(g.photo.url("medium")), good_path(g), class: 'good_image_image'%>
+              <%= link_to image_tag(g.photo.url("medium"), class: 'good_image_image'), good_path(g)%>
               <br />
             <% else %>
               <%= link_to image_tag('black-drill-sihouette.png'), good_path(g) %> <br />
