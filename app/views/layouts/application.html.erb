@@ -27,7 +27,7 @@
           <div class='row'>
         <!-- search box doesn't appear if no one is logged in -->
         <% if current_user != nil %>
-        <%= form_tag search_goods_path, :method => :get do %>
+          <%= form_tag search_goods_path, :method => :get do %>
             <div class='large-5 columns'>
               <%= text_field_tag :name, params[:name], :placeholder => 'Item', :class => "radius" %>
             </div>
