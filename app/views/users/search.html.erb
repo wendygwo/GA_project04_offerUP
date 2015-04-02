@@ -1,50 +1,54 @@
 <p id="notice"><%= notice %></p>
-<div class='row'>
-  <%= form_tag search_users_path, :method => :get do %>
-    <div class='large-5 columns'>
-      <%= text_field_tag :searchtext, params[:searchtext], :placeholder => 'User e-mail or name', :class => "radius" %>
-    </div>
-
-    <div class='large-2 columns'>
-      <%= submit_tag "Search", :name => nil, :class => "button radius", :id => "search" %>
-    </div>
-  <% end %><!-- end form tag -->
-</div>
 
 <% if @users.count != 0 %>
-  <h1>Add some friends!</h1>
+  <div class='row'>
+    <div class='large-6 columns large-offset-3'>
+      <h1 class='text-center'>Add some friends!</h1>
+      <div class='row'>
+      <%= form_tag search_users_path, :method => :get do %>
+        <div class='large-9 columns'>
+          <%= text_field_tag :searchtext, params[:searchtext], :placeholder => 'Friend e-mail, name, or location', :class => "radius" %>
+        </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th class='pictureTableCell'></th>
-        <th>Email</th>
-        <th>Name</th>
-        <th class='goodLocTableCell'>Location</th>
-        <th>Action(s)</th>
-      </tr>
-    </thead>
+        <div class='large-2 columns end'>
+          <%= submit_tag "Search", :name => nil, :class => "button radius", :id => "search" %>
+        </div>
+      <% end %><!-- end form tag -->
+    </div>
 
-    <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td>
-          <% if !user.photo_file_name.nil? %>
-            <%= link_to image_tag(user.photo.url("medium")), user_path(user) %>
-          <% else %>
-            <%= link_to image_tag('mysteryperson.jpg'), user_path(user) %>
+      <table>
+        <thead>
+          <tr>
+            <th class='pictureTableCell'></th>
+            <th>Email</th>
+            <th>Name</th>
+            <th class='goodLocTableCell'>Location</th>
+            <th>Action(s)</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+              <% if !user.photo_file_name.nil? %>
+                <%= link_to image_tag(user.photo.url("medium")), user_path(user) %>
+              <% else %>
+                <%= link_to image_tag('mysteryperson.jpg'), user_path(user) %>
+              <% end %>
+              </td>
+              <td><%= user.email %></td>
+              <td><%= link_to user.first_name + ' ' + user.last_name, user_path(user), class:'textLinkHover' %></td>
+              <td><%= user.city %>, <%= user.state %> <%= user.zip_code %></td>
+              <% if current_user != nil %>
+                <td><%= link_to 'Add Friend', friendships_path(:friend_id => user.id), method: :post, class:'button radius' %></td>
+              <% end %>
+            </tr>
           <% end %>
-          </td>
-          <td><%= user.email %></td>
-          <td><%= link_to user.first_name + ' ' + user.last_name, user_path(user), class:'textLinkHover' %></td>
-          <td><%= user.city %>, <%= user.state %> <%= user.zip_code %></td>
-          <% if current_user != nil %>
-            <td><%= link_to 'Add Friend', friendships_path(:friend_id => user.id), method: :post, class:'button radius' %></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
 <% else %>
   <h2>You've friended everyone in our system!</h2>
   <p>Be sure to let your other friends know about us, so that they can sign up, and you can add some more friends!</p>
