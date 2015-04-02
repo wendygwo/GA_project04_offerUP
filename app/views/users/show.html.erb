@@ -50,7 +50,7 @@
               <%= link_to image_tag(g.photo.url("medium"), class: 'good_image_image'), good_path(g)%>
               <br />
             <% else %>
-              <%= link_to image_tag('black-drill-sihouette.png'), good_path(g) %> <br />
+              <%= link_to image_tag('black-drill-sihouette.png', class: 'good_image_image'), good_path(g) %> <br />
             <% end %>
           </div>
           <%= g.name %>

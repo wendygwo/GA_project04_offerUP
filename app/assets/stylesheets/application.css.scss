@@ -134,7 +134,15 @@ h1, h2, h3 {
 .footer_icons:hover {
   color: #498EFF !important;
 }
-
+.textLinkHover:hover{
+  color: #498EFF;
+}
+.goodDescTableCell{
+  width: 300px;
+}
+.goodLocTableCell{
+  width: 100px;
+}
 // image styling
 
 .value img {
@@ -149,7 +157,9 @@ h1, h2, h3 {
 .logo_splash {
   margin-top: 0.5rem;
 }
-
+.pictureTableCell{
+  width:200px;
+}
 // icon styling
 .splash_icons h4 {
   font-family: 'Lato';
