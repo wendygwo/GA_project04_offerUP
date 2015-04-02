@@ -138,10 +138,13 @@ h1, h2, h3 {
   color: #498EFF;
 }
 .goodDescTableCell{
-  width: 300px;
+  width: 275px;
 }
 .goodLocTableCell{
-  width: 100px;
+  width: 150px;
+}
+.goodOwnerTableCell{
+  width: 150px;
 }
 // image styling
 
@@ -195,6 +198,10 @@ h1, h2, h3 {
 
 #search {
   border: 1px solid white;
+}
+
+#search {
+  padding-top: 0.25rem !important;
 }
 
 /**/

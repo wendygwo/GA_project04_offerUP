@@ -23,17 +23,16 @@
         <p><%= @user.friendships.count %> friends</p>
       </div>
 
-      <!-- add more friends button -->
-      <div class='large-4 columns'>
+     <div class='large-7 columns'>
         <!-- creates array of current_user's friends. will check if user visiting page is already a friend of current_user -->
         <% friendsArray = current_user.friendships.pluck(:friend_id) %>
         <!-- prevents user from adding self, prevents people who are already friends with current_user from adding again-->
         <% if current_user.id != params[:id].to_i && !friendsArray.include?(params[:id].to_i)%>
-          <%= link_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), method: :post %>
+          <%= button_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), class: 'button radius large-8 columns large-offset-2 text-center' %>
         <% end %>
-      </div>
-      <!-- map -->
-      <div class='large-3 columns'>MAPSIES!
+        <%= button_to 'Find More Friends', users_path, :method => 'get', class: 'button radius large-8 columns large-offset-2 text-center' %>
+        <%= button_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), :method => 'post', class: 'button radius large-8 columns large-offset-2 text-center' %>
+        <%= button_to 'Add More Goods', new_good_path, :method => 'get', class: 'button radius large-8 columns large-offset-2 text-center' %>
       </div>
     </div>
     <hr />
