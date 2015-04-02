@@ -55,7 +55,7 @@
           </div>
           <%= g.name %>
           <% if current_user.id == params[:id].to_i %>
-            (<%= link_to 'Edit', edit_good_path(g), class: 'textLinkHover'  %>)<br />
+            (<%= link_to 'Edit', edit_good_path(g), class: 'textLinkHover' %>)<br />
           <% end %>
         </div>
       <% end %>
