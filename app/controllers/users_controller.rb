@@ -22,7 +22,10 @@ class UsersController < ApplicationController
                 operator: "or",
                 fields: [{email: :word_middle},
                   {first_name: :word_middle},
-                  {last_name: :word_middle}
+                  {last_name: :word_middle},
+                  {city: :word_middle},
+                  {state: :word_middle},
+                  {zip_code: :word_middle}
                 ],
                 where:{
                   id: {not: friendsArray}
