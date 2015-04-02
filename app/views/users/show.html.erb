@@ -28,11 +28,12 @@
         <% friendsArray = current_user.friendships.pluck(:friend_id) %>
         <!-- prevents user from adding self, prevents people who are already friends with current_user from adding again-->
         <% if current_user.id != params[:id].to_i && !friendsArray.include?(params[:id].to_i)%>
-          <%= button_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), class: 'button radius large-10 columns large-offset-1 text-center' %>
+          <%= button_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), class: 'button radius large-8 columns large-offset-2 text-center' %>
         <% end %>
         <%= button_to 'Find More Friends', users_path, :method => 'get', class: 'button radius large-8 columns large-offset-2 text-center' %>
         <%= button_to 'Add Me As a Friend', friendships_path(:friend_id => params[:id]), :method => 'post', class: 'button radius large-8 columns large-offset-2 text-center' %>
       </div>
+    </div>
     <hr />
     <!-- goods display starts -->
     <div class='row text-center'>
