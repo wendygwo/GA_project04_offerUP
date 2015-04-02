@@ -14,20 +14,22 @@
 
 	<div class='row'>
     <div class="large-4 columns small-centered text-center field">
-			
+			<!-- Password field -->
 			<div class='field'>
 				<%= f.label :password %>
 				<%= f.password_field :password, class: 'radius' %>
 			</div>
-	
-			<div class="large-4 columns small-centered text-center field">
-				<div class='field'>
-					<%= f.label :password_confirmation %>
-					<%= f.password_field :password_confirmation, class: 'radius' %>
-				</div>
-				<div class='actions'>
-					<%= f.submit 'Update password', class: 'button radius' %>
-				</div>
+		</div>
+		<!-- Password confirmation -->
+		<div class="large-4 columns small-centered text-center field">
+			<div class='field'>
+				<%= f.label :password_confirmation %>
+				<%= f.password_field :password_confirmation, class: 'radius' %>
+			</div>
+		</div>
+		<div class="large-4 columns small-centered text-center field">
+			<div class='actions'>
+				<%= f.submit 'Update password', class: 'button radius' %>
 			</div>
 		</div>
 	</div> <!-- end row -->
