@@ -1,31 +1,31 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/helpers/application_helper.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/helpers/friendships_helper.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/helpers/friendships_helper.rb": [
         1,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/helpers/goods_helper.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/helpers/goods_helper.rb": [
         1,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/helpers/password_resets_helper.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/helpers/password_resets_helper.rb": [
         1,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/helpers/sessions_helper.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/helpers/sessions_helper.rb": [
         1,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/helpers/users_helper.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/models/user.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/models/user.rb": [
         1,
         1,
         1,
@@ -71,7 +71,7 @@
         null,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/controllers/sessions_controller.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/controllers/sessions_controller.rb": [
         1,
         1,
         9,
@@ -107,7 +107,7 @@
         null,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/controllers/application_controller.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -117,7 +117,7 @@
         null,
         null,
         1,
-        102,
+        107,
         null,
         null,
         null,
@@ -130,11 +130,41 @@
         null,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/controllers/users_controller.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/controllers/users_controller.rb": [
         1,
         1,
         null,
         1,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         1,
         1,
@@ -207,7 +237,7 @@
         null,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/models/good.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/models/good.rb": [
         1,
         1,
         null,
@@ -237,13 +267,13 @@
         null,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/models/friendship.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/models/friendship.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/controllers/goods_controller.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/controllers/goods_controller.rb": [
         1,
         1,
         1,
@@ -347,7 +377,7 @@
         null,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/mailers/user_mailer.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/mailers/user_mailer.rb": [
         1,
         null,
         null,
@@ -386,13 +416,13 @@
         null,
         null
       ],
-      "/Users/leerichardson/wdi/z_Code/rails_projects/GA_project04_offerUP/app/mailers/application_mailer.rb": [
+      "/Users/wendygwo/General_Assembly/wdi/projects/offerUp/app/mailers/application_mailer.rb": [
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1427993793
+    "timestamp": 1428043140
   }
 }
