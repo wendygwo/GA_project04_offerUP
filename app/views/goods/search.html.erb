@@ -2,6 +2,10 @@
 
 <h3 class='text-center'>Search Results</h3>
 
+<!-- Get curent user's lat and long -->
+<% lats = current_user.latitude %>
+<% longs = current_user.longitude %>
+
 <table>
   <thead>
     <tr>
@@ -26,7 +30,7 @@
         </td>
         <td ><%= link_to good.name, good_path(good),class:'textLinkHover' %></td>
         <td><%= good.description %></td>
-        <td><%= good.city %>, <%= good.state %> <%= good.zip_code %></td>
+        <td><%= good.city %>, <%= good.state %> <%= good.zip_code %> <br /> (<%= good.distance_to([lats, longs]).round(2) %> miles from you)</td>
         <td><%= link_to good.user.first_name + ' ' + good.user.last_name, user_path(good.user), class:'textLinkHover' %></td>
         <td class='text-center'><a href='mailto:<%= good.user.email %>?subject=<%= good.name %> - borrow request from <%= current_user.first_name %> <%= current_user.last_name %>&body=I would like to borrow your <%= good.name %>' class='textLinkHover button radius'>Request this good</a></td>
       </tr>
