@@ -146,6 +146,17 @@ h1, h2, h3 {
 .goodOwnerTableCell{
   width: 150px;
 }
+.pictureTableCell{
+  width: 200px;
+}
+
+.user_search {
+  padding-top: 15px;
+}
+
+.user_searchbox {
+  margin-top: 10px !important;
+}
 // image styling
 
 .value img {
@@ -160,9 +171,7 @@ h1, h2, h3 {
 .logo_splash {
   margin-top: 0.5rem;
 }
-.pictureTableCell{
-  width:200px;
-}
+
 // icon styling
 .splash_icons h4 {
   font-family: 'Lato';

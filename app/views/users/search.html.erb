@@ -3,15 +3,15 @@
 <% if @users.count != 0 %>
   <div class='row'>
     <div class='large-6 columns large-offset-3'>
-      <h1 class='text-center'>Add some friends!</h1>
+      <h1 class='text-center'>Add Some Friends!</h1>
       <div class='row'>
       <%= form_tag search_users_path, :method => :get do %>
         <div class='large-9 columns'>
-          <%= text_field_tag :searchtext, params[:searchtext], :placeholder => 'Friend e-mail, name, or location', :class => "radius" %>
+          <%= text_field_tag :searchtext, params[:searchtext], :placeholder => 'Friend e-mail, name, or location', :class => "radius user_searchbox" %>
         </div>
 
         <div class='large-2 columns end'>
-          <%= submit_tag "Search", :name => nil, :class => "button radius", :id => "search" %>
+          <%= submit_tag "Search", :name => nil, :class => "button radius user_search"%>
         </div>
       <% end %><!-- end form tag -->
     </div>
