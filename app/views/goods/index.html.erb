@@ -2,27 +2,38 @@
 
 <h1>Listing Goods</h1>
 
+<!-- Get curent user's lat and long -->
+<% lats = current_user.latitude %>
+<% longs = current_user.longitude %>
+
 <table>
   <thead>
     <tr>
-      <th class='pictureTableCell'></th>
-      <th>Name</th>
+      <th class='pictureTableCell'>Photo</th>
+      <th class='goodOwnerTableCell'>Name</th>
       <th class='goodDescTableCell'>Description</th>
       <th class='goodLocTableCell'>Location</th>
-      <th>Owner</th>
+      <th class='goodOwnerTableCell'>Owner</th>
+      <th class='text-center'>Request</th>
     </tr>
   </thead>
 
   <tbody>
     <% @goods.each do |good| %>
       <tr>
-        <td><%= link_to image_tag(good.photo.url("thumb")), good_path(good) %></td>
-        <td><%= link_to good.name, good_path(good),class:'textLinkHover' %></td>
+        <td class='text-center'>
+          <% if !good.photo_file_name.nil? %>
+            <%= link_to image_tag(good.photo.url("medium")), good_path(good) %>
+          <% else %>
+            <%= link_to image_tag('black-drill-sihouette.png'), good_path(good) %>
+          <% end %>
+        </td>
+        <td ><%= link_to good.name, good_path(good),class:'textLinkHover' %></td>
         <td><%= good.description %></td>
-        <td><%= good.city %>, <%= good.state %> <%= good.zip_code %></td>
-        <td><%= good.user.first_name %> <%= good.user.last_name %></td>
+        <td><%= good.city %>, <%= good.state %> <%= good.zip_code %> <br /> (<%= good.distance_to([lats, longs]).round(2) %> miles from you)</td>
+        <td><%= link_to good.user.first_name + ' ' + good.user.last_name, user_path(good.user), class:'textLinkHover' %></td>
+        <td class='text-center'><a href='mailto:<%= good.user.email %>?subject=<%= good.name %> - borrow request from <%= current_user.first_name %> <%= current_user.last_name %>&body=I would like to borrow your <%= good.name %>' class='textLinkHover button radius'>Request this good</a></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
